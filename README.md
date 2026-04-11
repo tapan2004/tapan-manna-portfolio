@@ -1,16 +1,108 @@
-# React + Vite
+# 🚀 Tapan Manna — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains my personal portfolio website showcasing my projects, technical skills, and experience as a Java Backend Developer.
 
-Currently, two official plugins are available:
+I focus on building production-ready, secure, and scalable backend systems using modern technologies like Spring Boot, REST APIs, and microservices architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 👨‍💻 About Me
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Final-year B.Tech Computer Science student specializing in:
 
-## Expanding the ESLint configuration
+- Java Backend Development
+- REST API Design
+- Microservices Architecture
+- System Design & Concurrency
+- API Security Testing
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+I am actively seeking:
+
+- Java Backend Developer roles
+- Spring Boot Developer roles
+- Software Developer positions
+
+---
+
+## 🛠 Tech Stack
+
+### Backend
+
+- Java
+- Spring Boot
+- Spring Security
+- Spring MVC
+- JPA / Hibernate
+- REST APIs
+- JWT Authentication
+
+### Databases
+
+- MySQL
+- PostgreSQL
+- MongoDB
+- Redis
+
+### Tools & DevOps
+
+- Docker
+- Git / GitHub
+- Maven
+- Postman
+- Swagger
+
+### Security
+
+- OWASP Top 10
+- Burp Suite
+- Kali Linux
+- API Security Testing
+
+---
+
+## 📦 Featured Projects
+
+### 1. Personal Finance Tracker
+
+- Controller-Service-Repository architecture
+- JWT authentication
+- Budget alerts & reporting
+- Scheduled background jobs
+
+### 2. AI-Powered Smart Cafe Management System
+
+- Java + Python microservices
+- Machine learning analytics
+- Real-time recommendation engine
+- Time-series forecasting
+
+### 3. Event Ticket Booking System
+
+- High-concurrency booking
+- Pessimistic locking
+- ACID transaction consistency
+
+### 4. Async Order Processing System
+
+- Non-blocking backend architecture
+- ThreadPoolTaskExecutor
+- CompletableFuture async workflows
+
+---
+
+## 🌐 Live Portfolio
+
+Add your deployed link here:
+
+---
+
+## 📬 Contact
+
+Email:  
+manna tapan588@gmail.com
+
+GitHub:  
+https://github.com/tapan2004
+
+LinkedIn:  
+https://linkedin.com/in/tapan-manna
