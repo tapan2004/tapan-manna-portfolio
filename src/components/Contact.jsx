@@ -21,6 +21,10 @@ export default function Contact() {
     const [status, setStatus] = useState('')
 
     useEffect(() => {
+
+        // test
+        console.log("API URL:", import.meta.env.VITE_API_URL)
+
         const observer = new IntersectionObserver(
             entries => entries.forEach(e => {
                 if (e.isIntersecting) e.target.classList.add('in-view')
@@ -42,6 +46,9 @@ export default function Contact() {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        // add test
+        console.log("API URL:", import.meta.env.VITE_API_URL)
+
         setStatus('sending')
 
         try {
