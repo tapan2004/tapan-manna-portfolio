@@ -62,9 +62,9 @@ function useCountUp(target, duration = 1600) {
 
 export default function Hero() {
     const phrases = [
-        'Immediate Joiner | Java Backend Developer | Spring Boot | MySQL | REST APIs ',
-        'Spring Boot Developer | Junior software developer | Backend Developer | Java Developer',
-        'Available for opportunities',
+        'Software Engineering Intern @ Sunyam Software | B.Tech CS Graduate',
+        'Immediate Joiner | Java Backend & Full-Stack Developer | Spring Boot | Angular | Next.js',
+        'Spring Boot Developer | Java Backend Developer | Available for Opportunities',
     ]
     const typed = useTyping(phrases)
     const [apis,  apisRef]  = useCountUp(15)
@@ -96,9 +96,8 @@ export default function Hero() {
 
                     {/* Subtitle */}
                     <p className="hero-subtitle anim" style={{ '--d': '0.3s' }}>
-                        Final-year <strong>Computer Science</strong> student &amp;{' '}
-                        <strong>Java Backend Developer</strong> specializing in scalable RESTful
-                        APIs, secure Spring Boot systems, and AI-integrated architectures.
+                        <strong>B.Tech Computer Science Graduate (2026)</strong> &amp;{' '}
+                        <strong>Java Backend &amp; Full-Stack Developer</strong> with hands-on full-stack development experience as a Software Engineering Intern at Sunyam Software, specializing in Spring Boot, Angular, and Next.js.
                     </p>
 
                     {/* CTA Buttons */}
@@ -147,7 +146,7 @@ export default function Hero() {
                         <div className="stat-divider" />
                         <div className="stat">
                             <div className="stat-num">
-                                32<span className="accent-text">+</span>
+                                40<span className="accent-text">+</span>
                             </div>
                             <div className="stat-label">GitHub Repos</div>
                         </div>
@@ -158,7 +157,7 @@ export default function Hero() {
                 <div className="hero-photo-container">
                     <div className="hero-photo-wrapper">
                         <img
-                            src="Tapan Image.png"
+                            src="Tapan Image.jpg"
                             alt="Tapan Manna - Java Backend Developer"
                             className="hero-photo"
                         />

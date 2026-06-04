@@ -63,7 +63,7 @@ const PROJECTS = [
             'Parallel async tasks: notify, assign vendor, package, dispatch',
             'Graceful shutdown + structured trackingId logging',
         ],
-        stack: ['Java 17', 'Spring Boot', '@Async', 'ThreadPoolTaskExecutor', 'CompletableFuture', 'Lombok'],
+        stack: ['Java 21', 'Spring Boot', '@Async', 'ThreadPoolTaskExecutor', 'CompletableFuture', 'Lombok'],
         github: 'https://github.com/tapan2004/spring-boot-async-order-processing',
     },
     {
@@ -130,7 +130,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="btn-secondary"
                 >
-                    🐙 &nbsp;View All 32+ Projects on GitHub
+                    🐙 &nbsp;View All 40+ Projects on GitHub
                 </a>
             </div>
         </section>

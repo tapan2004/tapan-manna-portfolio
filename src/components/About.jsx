@@ -9,28 +9,21 @@ export default function About() {
             <div className="about-grid">
                 <div className="about-text">
                     <p className="reveal">
-                        I'm a <strong>final-year B.Tech CSE student</strong> at Sister Nivedita University, Kolkata,
-                        with a deep focus on Java backend engineering. My work centers on designing{' '}
-                        <strong>production-ready, secure, and scalable systems</strong> that go beyond CRUD — I build
-                        architectures that think ahead.
+                        I'm a <strong>B.Tech Computer Science Graduate (2026)</strong> from Sister Nivedita University, Kolkata, with hands-on full-stack development experience as a <strong>Software Engineering Intern at Sunyam Software</strong>. My focus is on delivering robust, production-ready backend systems and web applications.
                     </p>
                     <p className="reveal" style={{ '--reveal-delay': '0.1s' }}>
-                        From engineering <strong>AI-powered cafe management systems</strong> to building{' '}
-                        <strong>personal finance trackers</strong> with real-time analytics, I obsess over the layers that
-                        make software robust: authentication, data pipelines, service architecture, and API design.
+                        I am highly proficient in <strong>Java, Spring Boot, Spring Security, and Spring Data JPA</strong> for building secure, scalable RESTful APIs, alongside frontend development in <strong>Angular and Next.js</strong>. I have practical experience working with <strong>PostgreSQL, MySQL</strong>, and end-to-end architectures.
                     </p>
                     <p className="reveal" style={{ '--reveal-delay': '0.15s' }}>
-                        I also carry experience in <strong>API security testing</strong> — identifying vulnerabilities using
-                        Burp Suite, Kali Linux, and OWASP Top 10 principles, giving me both the builder's and the
-                        breaker's perspective.
+                        With a strong foundation in <strong>OOP, authentication systems, and Git/GitHub workflows</strong>, as well as experience in API security testing (using Burp Suite, Kali Linux, and OWASP Top 10), I seek a <strong>Java Backend or Full-Stack Developer role</strong>.
                     </p>
                     <div className="about-details reveal" style={{ '--reveal-delay': '0.2s' }}>
                         {[
                             ['Location',   'Kolkata, West Bengal, India'],
                             ['Email',      'mannatapan588@gmail.com'],
                             ['Phone',      '+91-9749697174'],
-                            ['Graduating', 'May 2026'],
-                            ['Open To',    'Java Backend Developer Roles'],
+                            ['Graduated',  '9th May 2026'],
+                            ['Open To',    'Java Backend / Full-Stack Roles'],
                         ].map(([k, v]) => (
                             <div className="detail-row" key={k}>
                                 <span className="detail-key">{k}</span>

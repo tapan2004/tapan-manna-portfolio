@@ -29,7 +29,7 @@ export default function Education() {
                 </div>
                 <div className="edu-right">
                     <div className="edu-period">AUG 2022 – MAY 2026</div>
-                    <div className="edu-badge">Final Year</div>
+                    <div className="edu-badge">Graduated</div>
                 </div>
             </div>
         </section>
