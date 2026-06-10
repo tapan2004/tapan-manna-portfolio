@@ -22,7 +22,7 @@ export default function About() {
                             ['Location',   'Kolkata, West Bengal, India'],
                             ['Email',      'mannatapan588@gmail.com'],
                             ['Phone',      '+91-9749697174'],
-                            ['Graduated',  '9th May 2026'],
+                            ['Graduated',  'May 2026'],
                             ['Open To',    'Java Backend / Full-Stack Roles'],
                         ].map(([k, v]) => (
                             <div className="detail-row" key={k}>
