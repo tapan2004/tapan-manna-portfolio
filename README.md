@@ -92,7 +92,7 @@ I am actively seeking:
 
 ## 🌐 Live Portfolio
 
-## Add your deployed link here: [https://tapan-manna-portfolio.vercel.app/](https://tapan-manna-portfolio-2eus1in9d-mannatapan584-9134s-projects.vercel.app/)
+## Add your deployed link here: https://tapan-manna-portfolio.vercel.app/
 ---
 
 ## 📬 Contact
