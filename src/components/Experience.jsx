@@ -12,7 +12,7 @@ export default function Experience() {
                 <div className="exp-company">Sunyam Software</div>
                 <div className="exp-date">MAY 2026 – PRESENT · ONSIDE · KOLKATA, INDIA</div>
                 <div className="exp-tools">
-                    {['Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA', 'Angular', 'Next.js', 'PostgreSQL', 'Git', 'Git CLI'].map(t => (
+                    {['Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA', 'Angular', 'PostgreSQL', 'Git', 'Git CLI'].map(t => (
                         <span className="exp-tool" key={t}>{t}</span>
                     ))}
                 </div>
@@ -21,7 +21,7 @@ export default function Experience() {
                         <span>Developing and maintaining full-stack web applications using <strong>Java, Spring Boot</strong>, and <strong>Angular / Next.js</strong>, building secure and scalable RESTful APIs alongside modern frontend interfaces.</span>
                     </li>
                     <li>
-                        <span>Designing and optimizing databases with <strong>PostgreSQ</strong>, implementing secure authentication and authorization systems with <strong>Spring Security and JWT</strong>.</span>
+                        <span>Designing and optimizing databases with <strong>PostgreSQL</strong>, implementing secure authentication and authorization systems with <strong>Spring Security and JWT</strong>.</span>
                     </li>
                     <li>
                         <span>Leveraging <strong>OOP principles</strong> to build robust architectures and managing codebase integration seamlessly with <strong>Git/GitHub workflows</strong>.</span>
@@ -35,7 +35,7 @@ export default function Experience() {
                 <div className="exp-company">Remote Internship</div>
                 <div className="exp-date">APRIL 2025 – JULY 2025 · 4 MONTHS · REMOTE</div>
                 <div className="exp-tools">
-                    {['Postman','Burp Suite','Kali Linux','OWASP Top 10'].map(t => (
+                    {['Postman', 'Burp Suite', 'Kali Linux', 'OWASP Top 10'].map(t => (
                         <span className="exp-tool" key={t}>{t}</span>
                     ))}
                 </div>
