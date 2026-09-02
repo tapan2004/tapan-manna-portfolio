@@ -28,7 +28,7 @@ export default function Education() {
                     <div className="edu-location">📍 Kolkata, West Bengal, India</div>
                 </div>
                 <div className="edu-right">
-                    <div className="edu-period">AUG 2022 – MAY 2026</div>
+                    <div className="edu-period">AUG 2022 – JUNE 2026</div>
                     <div className="edu-badge">Graduated</div>
                 </div>
             </div>

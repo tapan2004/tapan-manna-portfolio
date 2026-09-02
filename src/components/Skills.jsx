@@ -5,7 +5,7 @@ const GROUPS = [
     { title: '// Frameworks & Libraries', delay: '0.05s', pills: ['Spring Boot','Spring Security','Spring Data JPA','Angular','Next.js','Spring MVC','JPA / Hibernate','RESTful APIs','JWT Auth','FastAPI','Spring Scheduler','JavaMailSender'].map(l => ({ label: l, cls: 'p-cyan' })) },
     { title: '// Databases',              delay: '0.1s',  pills: ['MySQL','PostgreSQL','MongoDB','Oracle'].map(l => ({ label: l, cls: '' })).concat([{ label: 'Redis', cls: 'p-orange' }]) },
     { title: '// DevOps & Tools',         delay: '0.15s', pills: [{ label: 'Docker', cls: 'p-orange' }, ...['Git / GitHub', 'Git CLI', 'Maven','Postman','Swagger','Cloudinary'].map(l => ({ label: l, cls: '' }))] },
-    // { title: '// ML & Data Science',      delay: '0.2s',  pills: ['Scikit-Learn','Facebook Prophet','Apriori Algorithm','Python'].map(l => ({ label: l, cls: '' })) },
+    { title: '// ML & Data Science',      delay: '0.2s',  pills: ['Scikit-Learn','Facebook Prophet','Apriori Algorithm','Python'].map(l => ({ label: l, cls: '' })) },
     { title: '// Security',               delay: '0.25s', pills: ['OWASP Top 10','Burp Suite','Kali Linux','API Security Testing'].map(l => ({ label: l, cls: '' })) },
     { title: '// Core CS',                delay: '0.3s',  pills: ['OOP','DBMS','Operating Systems','Computer Networks','Data Structures','Agile'].map(l => ({ label: l, cls: '' })) },
 ]

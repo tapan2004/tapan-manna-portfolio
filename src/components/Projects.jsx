@@ -130,7 +130,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="btn-secondary"
                 >
-                    🐙 &nbsp;View All 40+ Projects on GitHub
+                    🐙 &nbsp;View All 50+ Projects on GitHub
                 </a>
             </div>
         </section>

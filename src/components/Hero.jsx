@@ -63,7 +63,7 @@ function useCountUp(target, duration = 1600) {
 export default function Hero() {
     const phrases = [
         'Software Engineering Intern @ Sunyam Software | B.Tech CS Graduate',
-        'Immediate Joiner | Java Backend & Full-Stack Developer | Spring Boot | Angular | Next.js',
+        'Immediate Joiner | Java Backend & Full-Stack Developer | Spring Boot | React',
         'Spring Boot Developer | Java Backend Developer | Available for Opportunities',
     ]
     const typed = useTyping(phrases)
