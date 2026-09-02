@@ -67,9 +67,9 @@ export default function Hero() {
         'Spring Boot Developer | Java Backend Developer | Available for Opportunities',
     ]
     const typed = useTyping(phrases)
-    const [apis,  apisRef]  = useCountUp(15)
+    const [apis, apisRef] = useCountUp(15)
     const [vulns, vulnsRef] = useCountUp(10)
-    const [projs, projsRef] = useCountUp(5)
+    const [projs, projsRef] = useCountUp(8)
 
     return (
         <section className="hero" id="home">
@@ -146,7 +146,7 @@ export default function Hero() {
                         <div className="stat-divider" />
                         <div className="stat">
                             <div className="stat-num">
-                                40<span className="accent-text">+</span>
+                                50<span className="accent-text">+</span>
                             </div>
                             <div className="stat-label">GitHub Repos</div>
                         </div>

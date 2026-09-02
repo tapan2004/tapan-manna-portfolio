@@ -3,6 +3,49 @@ import useReveal from '../hooks/useReveal'
 const PROJECTS = [
     {
         num: 'PROJECT 01',
+        date: '2026',
+        featured: true,
+        title: 'DocuSense: Enterprise RAG Platform with Pre-Retrieval Security',
+        desc: <span>Production-grade <strong>Retrieval-Augmented Generation (RAG) platform</strong> with multi-tenant clearance boundaries and pre-retrieval security.</span>,
+        features: [
+            'Security & Data Isolation: Engineered a secure document retrieval pipeline extracting RBAC claim boundaries from JWT signatures to execute pre-retrieval SQL filtering in pgvector',
+            'Java 21 Concurrency: Optimized ingestion pipelines by processing Apache Tika-parsed document chunk contextualization concurrently using Java 21 Virtual Threads',
+            'Sub-Millisecond Caching: Integrated Redis exact-match caching keyed on MD5 hashes of user claims, returning search responses in <1ms',
+            'Telemetry & Guardrails: Built a secondary LLM evaluation pipeline tracking token costs, latencies, groundedness callouts, and paginated audit logs',
+        ],
+        stack: ['Java 21', 'Spring Boot 4', 'Spring Security', 'Spring AI', 'PostgreSQL (pgvector)', 'Redis', 'React', 'Docker'],
+        github: 'https://github.com/tapan2004/DocuSense',
+    },
+    {
+        num: 'PROJECT 02',
+        date: '2026',
+        featured: true,
+        title: 'PayGuard: Real-Time Payment Fraud Detection Pipeline',
+        desc: <span>High-throughput <strong>event-driven microservices architecture</strong> analyzing transaction streams in real-time for fraud scoring.</span>,
+        features: [
+            'Distributed Event Streaming: Built asynchronous transaction ingestion pipelines using Apache Kafka Streams for real-time risk scoring and sliding-window event aggregation',
+            'Microservices & Resilience: Engineered stateless Spring Boot microservices with idempotent transaction handlers and global exception interceptors',
+            'Database Optimization: Designed relational transaction ledger schemas in PostgreSQL tuned with composite indexes for sub-10ms query execution',
+        ],
+        stack: ['Java 21', 'Spring Boot', 'Apache Kafka', 'Kafka Streams', 'PostgreSQL', 'Docker'],
+        github: 'https://github.com/tapan2004/PayGuard',
+    },
+    {
+        num: 'PROJECT 03',
+        date: '2026',
+        featured: true,
+        title: 'DevSentinAI: Event-Driven AI Code Review Engine',
+        desc: <span>Automated <strong>GitHub code review platform</strong> analyzing pull request diffs using LLMs and vector memory.</span>,
+        features: [
+            'Webhook Ingress: Built secure, HMAC-validated GitHub webhook listeners processing pull request events asynchronously',
+            'AST-Aware Chunking: Segmented multi-file code diffs into semantic chunks and generated vector embeddings stored in Redis Vector Store',
+            'Automated Feedback: Leveraged Spring AI to generate automated pull request inline review comments evaluating code quality, security vulnerabilities, and design patterns',
+        ],
+        stack: ['Java 21', 'Spring Boot', 'Spring AI', 'Redis Vector Store', 'GitHub Webhooks', 'Docker'],
+        github: 'https://github.com/tapan2004/DevSentinAI',
+    },
+    {
+        num: 'PROJECT 04',
         date: 'JAN 2026 – FEB 2026',
         featured: true,
         title: 'Personal Finance Tracker',
@@ -19,9 +62,9 @@ const PROJECTS = [
         github: 'https://github.com/tapan2004/FinanceTrackerApi',
     },
     {
-        num: 'PROJECT 02',
+        num: 'PROJECT 05',
         date: 'SEP 2025 – NOV 2025',
-        featured: true,
+        featured: false,
         title: 'AI-Powered Smart Cafe Management System',
         desc: <span>A <strong>scalable, AI-driven backend</strong> integrating Java and Python microservices for intelligent cafe operations and ML-based analytics.</span>,
         features: [
@@ -36,7 +79,7 @@ const PROJECTS = [
         github: 'https://github.com/tapan2004/smart-cafe-management-system',
     },
     {
-        num: 'PROJECT 03',
+        num: 'PROJECT 06',
         date: '2025',
         featured: false,
         title: 'Event Ticket Booking — Concurrency & Locking',
@@ -52,7 +95,7 @@ const PROJECTS = [
         github: 'https://github.com/tapan2004/Ticket_Booking_API',
     },
     {
-        num: 'PROJECT 04',
+        num: 'PROJECT 07',
         date: '2025',
         featured: false,
         title: 'Spring Boot Async Order Processing',
@@ -67,7 +110,7 @@ const PROJECTS = [
         github: 'https://github.com/tapan2004/spring-boot-async-order-processing',
     },
     {
-        num: 'PROJECT 05',
+        num: 'PROJECT 08',
         date: '2025',
         featured: false,
         title: 'FullStack Email Sender',
