@@ -98,7 +98,7 @@ I am actively seeking:
 ## 📬 Contact
 
 Email:  
-mannatapan588@gmail.com
+tapanmanna.cs@gmail.com
 
 GitHub:  
 https://github.com/tapan2004
