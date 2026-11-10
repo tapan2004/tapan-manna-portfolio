@@ -106,7 +106,7 @@ def create_one_page_cv(output_path):
     contacts = (
         "Kolkata, India &nbsp;|&nbsp; "
         "+91-9749697174 &nbsp;|&nbsp; "
-        "<a href='mailto:mannatapan588@gmail.com' color='#059669'>mannatapan588@gmail.com</a> &nbsp;|&nbsp; "
+        "<a href='mailto:tapanmanna.cs@gmail.com' color='#059669'>tapanmanna.cs@gmail.com</a> &nbsp;|&nbsp; "
         "<a href='https://github.com/tapan2004' color='#059669'>github.com/tapan2004</a> &nbsp;|&nbsp; "
         "<a href='https://linkedin.com/in/tapan-manna' color='#059669'>linkedin.com/in/tapan-manna</a> &nbsp;|&nbsp; "
         "<a href='https://tapan-manna-portfolio.vercel.app/' color='#059669'>Live Portfolio</a>"

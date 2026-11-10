@@ -4,8 +4,8 @@ import useReveal from '../hooks/useReveal'
 const CONTACT_METHODS = [
     {
         label: 'Direct Email',
-        value: 'mannatapan588@gmail.com',
-        href: 'mailto:mannatapan588@gmail.com',
+        value: 'tapanmanna.cs@gmail.com',
+        href: 'mailto:tapanmanna.cs@gmail.com',
         external: false,
     },
     {
@@ -247,7 +247,7 @@ export default function Contact() {
                                     <line x1="12" y1="8" x2="12" y2="12" />
                                     <line x1="12" y1="16" x2="12.01" y2="16" />
                                 </svg>
-                                <span>Transmission could not be completed. Please email directly at mannatapan588@gmail.com.</span>
+                                <span>Transmission could not be completed. Please email directly at tapanmanna.cs@gmail.com.</span>
                             </div>
                         )}
                     </form>

@@ -61,7 +61,7 @@ Live Deployment: https://tapan-manna-portfolio.vercel.app/
 
 ## 📬 Contact
 
-- **Email:** mannatapan588@gmail.com
+- **Email:** tapanmanna.cs@gmail.com
 - **GitHub:** [github.com/tapan2004](https://github.com/tapan2004)
 - **LinkedIn:** [linkedin.com/in/tapan-manna](https://linkedin.com/in/tapan-manna)
 - **Phone:** +91-9749697174

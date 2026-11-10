@@ -1,30 +1,30 @@
 import useReveal from '../hooks/useReveal'
 
+const PILLARS = [
+    {
+        tag: 'SYSTEMS ARCHITECTURE',
+        title: 'Backend & Distributed Engineering',
+        desc: 'Designing resilient microservices, asynchronous message streaming with Apache Kafka, gRPC remote procedure calls, and clean layered architectures across Java/Spring Boot and C#/.NET Core.'
+    },
+    {
+        tag: 'CROSS-PLATFORM ENGINEERING',
+        title: 'Full-Stack & Client Software',
+        desc: 'Building responsive web platforms, desktop tools, and client-facing applications using React, Node.js, Angular, and modern cross-platform development patterns.'
+    },
+    {
+        tag: 'DATA INFRASTRUCTURE',
+        title: 'Database Design & High Concurrency',
+        desc: 'Structuring relational schemas in PostgreSQL and MySQL with composite indexing, utilizing SQLite and Redis for sub-millisecond lookups, and enforcing transactional integrity under race conditions.'
+    },
+    {
+        tag: 'SECURITY & VERIFICATION',
+        title: 'Defensive Engineering & API Testing',
+        desc: 'Applying OWASP Top 10 standards, pre-retrieval access claim boundaries, JWT stateless session handling, and rigorous endpoint validation with Postman, Burp Suite, and Kali Linux.'
+    }
+]
+
 export default function About() {
     const ref = useReveal()
-
-    const PILLARS = [
-        {
-            tag: 'SYSTEMS ARCHITECTURE',
-            title: 'Backend & Distributed Engineering',
-            desc: 'Designing resilient microservices, asynchronous message streaming with Apache Kafka, gRPC remote procedure calls, and clean layered architectures across Java/Spring Boot and C#/.NET Core.'
-        },
-        {
-            tag: 'CROSS-PLATFORM ENGINEERING',
-            title: 'Full-Stack & Client Software',
-            desc: 'Building responsive web platforms, desktop tools, and client-facing applications using React, Node.js, Angular, and modern cross-platform development patterns.'
-        },
-        {
-            tag: 'DATA INFRASTRUCTURE',
-            title: 'Database Design & High Concurrency',
-            desc: 'Structuring relational schemas in PostgreSQL and MySQL with composite indexing, utilizing SQLite and Redis for sub-millisecond lookups, and enforcing transactional integrity under race conditions.'
-        },
-        {
-            tag: 'SECURITY & VERIFICATION',
-            title: 'Defensive Engineering & API Testing',
-            desc: 'Applying OWASP Top 10 standards, pre-retrieval access claim boundaries, JWT stateless session handling, and rigorous endpoint validation with Postman, Burp Suite, and Kali Linux.'
-        }
-    ]
 
     return (
         <section className="section-container" id="about" ref={ref}>
@@ -59,12 +59,12 @@ export default function About() {
                         </div>
                         <div className="spec-item">
                             <span className="spec-label">Education</span>
-                            <span className="spec-value">B.Tech in CSE — First Class Degree</span>
+                            <span className="spec-value">B.Tech in Computer Science &amp; Engineering</span>
                         </div>
                         <div className="spec-item">
                             <span className="spec-label">Email</span>
                             <span className="spec-value">
-                                <a href="mailto:mannatapan588@gmail.com" className="spec-link">mannatapan588@gmail.com</a>
+                                <a href="mailto:tapanmanna.cs@gmail.com" className="spec-link">tapanmanna.cs@gmail.com</a>
                             </span>
                         </div>
                     </div>
