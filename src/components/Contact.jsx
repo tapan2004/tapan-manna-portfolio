@@ -1,14 +1,35 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState } from 'react'
+import useReveal from '../hooks/useReveal'
 
-const LINKS = [
-    { icon: '✉️', label: 'Email',    val: 'mannatapan588@gmail.com', href: 'mailto:mannatapan588@gmail.com' },
-    { icon: '🐙', label: 'GitHub',   val: 'github.com/tapan2004',    href: 'https://github.com/tapan2004', external: true },
-    { icon: '💼', label: 'LinkedIn', val: 'linkedin.com/in/tapan-manna', href: 'https://linkedin.com/in/tapan-manna', external: true },
-    { icon: '📱', label: 'Phone',    val: '+91-9749697174',           href: 'tel:+919749697174' },
+const CONTACT_METHODS = [
+    {
+        label: 'Direct Email',
+        value: 'mannatapan588@gmail.com',
+        href: 'mailto:mannatapan588@gmail.com',
+        external: false,
+    },
+    {
+        label: 'LinkedIn Profile',
+        value: 'linkedin.com/in/tapan-manna',
+        href: 'https://linkedin.com/in/tapan-manna',
+        external: true,
+    },
+    {
+        label: 'GitHub Profile',
+        value: 'github.com/tapan2004',
+        href: 'https://github.com/tapan2004',
+        external: true,
+    },
+    {
+        label: 'Direct Phone',
+        value: '+91-9749697174',
+        href: 'tel:+919749697174',
+        external: false,
+    },
 ]
 
 export default function Contact() {
-    const sectionRef = useRef(null)
+    const ref = useReveal()
 
     const [form, setForm] = useState({
         name: '',
@@ -18,41 +39,23 @@ export default function Contact() {
         message: ''
     })
 
-    const [status, setStatus] = useState('')
-
-    useEffect(() => {
-
-        // test
-        console.log("API URL:", import.meta.env.VITE_API_URL)
-
-        const observer = new IntersectionObserver(
-            entries => entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('in-view')
-            }),
-            { threshold: 0.15 }
-        )
-
-        const els = sectionRef.current?.querySelectorAll('.reveal')
-        els?.forEach(el => observer.observe(el))
-
-        return () => observer.disconnect()
-    }, [])
+    const [status, setStatus] = useState('') // 'sending' | 'success' | 'error' | ''
 
     const handleChange = e =>
-        setForm({
-            ...form,
+        setForm(prev => ({
+            ...prev,
             [e.target.name]: e.target.value
-        })
+        }))
 
     const handleSubmit = async e => {
         e.preventDefault()
-        // add test
-        console.log("API URL:", import.meta.env.VITE_API_URL)
-
         setStatus('sending')
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+            const baseUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
+            const endpoint = `${baseUrl}/api/contact`
+
+            const res = await fetch(endpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -60,20 +63,17 @@ export default function Contact() {
                 body: JSON.stringify(form)
             })
 
-            // Added safe error handling (no structural change)
             if (!res.ok) {
                 const errorText = await res.text()
-                console.error("Server error:", errorText)
+                console.error('Server error response:', errorText)
                 setStatus('error')
                 return
             }
 
             const result = await res.json()
 
-            if (result.success) {
+            if (result && result.success !== false) {
                 setStatus('success')
-
-                // Reset form
                 setForm({
                     name: '',
                     email: '',
@@ -81,173 +81,177 @@ export default function Contact() {
                     subject: '',
                     message: ''
                 })
-
             } else {
                 setStatus('error')
             }
-
         } catch (err) {
-            console.error("Fetch error:", err)
+            console.error('Submission network error:', err)
             setStatus('error')
         }
     }
 
     return (
-        <section className="section-pad" id="contact" ref={sectionRef}>
-
-            <div className="section-tag reveal">
-                // 07 — contact
+        <section className="section-container" id="contact" ref={ref}>
+            <div className="section-header reveal">
+                <span className="section-eyebrow">// 07. CONTACT</span>
+                <h2 className="section-heading">Let's Build Something Meaningful.</h2>
+                <p className="section-subheading">
+                    I'm interested in building scalable software, solving complex engineering problems and collaborating on meaningful technology projects.
+                </p>
             </div>
 
-            <div className="contact-grid">
-
-                {/* Left Side */}
-
-                <div>
-
-                    <div className="contact-heading reveal">
-                        Let's Build<em>Together.</em>
-                    </div>
-
-                    <p
-                        className="contact-subtext reveal"
-                        style={{ '--reveal-delay': '0.1s' }}
-                    >
-                        I'm actively seeking Java Backend Developer roles.
-                        If you're building something that demands solid
-                        architecture, secure APIs, and scalable systems —
-                        let's talk.
+            <div className="contact-editorial-layout">
+                {/* Left Column: Direct Inquiries & Links */}
+                <div className="contact-channel-info reveal">
+                    <h3 className="channel-title">Direct Communication</h3>
+                    <p className="channel-desc">
+                        Whether you are discussing backend architecture, full-stack systems engineering, or technical leadership roles, feel free to reach out directly.
                     </p>
 
-                    <div
-                        className="contact-links reveal"
-                        style={{
-                            '--reveal-delay': '0.2s',
-                            marginTop: '32px'
-                        }}
-                    >
-                        {LINKS.map(l => (
+                    <div className="contact-cards-list">
+                        {CONTACT_METHODS.map(method => (
                             <a
-                                key={l.label}
-                                href={l.href}
-                                className="contact-link"
-                                {...(l.external
-                                        ? {
-                                            target: '_blank',
-                                            rel: 'noopener noreferrer'
-                                        }
-                                        : {}
+                                key={method.label}
+                                href={method.href}
+                                className="contact-method-card"
+                                {...(method.external
+                                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                                    : {}
                                 )}
                             >
-                                <div className="cl-left">
-
-                                    <div className="cl-icon">
-                                        {l.icon}
-                                    </div>
-
-                                    <div>
-
-                                        <div className="cl-label">
-                                            {l.label}
-                                        </div>
-
-                                        <div className="cl-val">
-                                            {l.val}
-                                        </div>
-
-                                    </div>
-
+                                <div className="method-text">
+                                    <span className="method-label">{method.label}</span>
+                                    <span className="method-value">{method.value}</span>
                                 </div>
-
-                                <span className="cl-arrow">
-                                    →
-                                </span>
-
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="method-arrow" aria-hidden="true">
+                                    <line x1="7" y1="17" x2="17" y2="7" />
+                                    <polyline points="7 7 17 7 17 17" />
+                                </svg>
                             </a>
                         ))}
                     </div>
-
                 </div>
 
-                {/* Right Side — Form */}
+                {/* Right Column: Ingestion Form */}
+                <div className="contact-form-panel reveal" style={{ '--reveal-delay': '0.1s' }}>
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                        <div className="form-group-row">
+                            <div className="form-field">
+                                <label htmlFor="contact-name" className="field-label">
+                                    Your Name <span className="req">*</span>
+                                </label>
+                                <input
+                                    id="contact-name"
+                                    name="name"
+                                    type="text"
+                                    className="form-input"
+                                    placeholder="e.g. John Doe"
+                                    value={form.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-field">
+                                <label htmlFor="contact-email" className="field-label">
+                                    Email Address <span className="req">*</span>
+                                </label>
+                                <input
+                                    id="contact-email"
+                                    name="email"
+                                    type="email"
+                                    className="form-input"
+                                    placeholder="name@organization.com"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
 
-                <form
-                    className="contact-form reveal"
-                    style={{ '--reveal-delay': '0.15s' }}
-                    onSubmit={handleSubmit}
-                >
+                        <div className="form-group-row">
+                            <div className="form-field">
+                                <label htmlFor="contact-phone" className="field-label">
+                                    Phone Number (Optional)
+                                </label>
+                                <input
+                                    id="contact-phone"
+                                    name="phone"
+                                    type="tel"
+                                    className="form-input"
+                                    placeholder="+1 (555) 000-0000"
+                                    value={form.phone}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="form-field">
+                                <label htmlFor="contact-subject" className="field-label">
+                                    Subject <span className="req">*</span>
+                                </label>
+                                <input
+                                    id="contact-subject"
+                                    name="subject"
+                                    type="text"
+                                    className="form-input"
+                                    placeholder="Software Engineering Collaboration"
+                                    value={form.subject}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
 
-                    <div className="form-row">
+                        <div className="form-field">
+                            <label htmlFor="contact-message" className="field-label">
+                                Message <span className="req">*</span>
+                            </label>
+                            <textarea
+                                id="contact-message"
+                                name="message"
+                                className="form-textarea"
+                                placeholder="Describe the project, role, or technical requirements..."
+                                rows="5"
+                                value={form.message}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
 
-                        <input
-                            name="name"
-                            placeholder="Name"
-                            value={form.name}
-                            onChange={handleChange}
-                            required
-                        />
+                        <button
+                            type="submit"
+                            className="btn-submit"
+                            disabled={status === 'sending'}
+                        >
+                            {status === 'sending' ? (
+                                <span className="submit-loading">
+                                    <span className="spinner" aria-hidden="true" />
+                                    <span>Transmitting Message...</span>
+                                </span>
+                            ) : (
+                                <span>Send Message →</span>
+                            )}
+                        </button>
 
-                        <input
-                            name="email"
-                            placeholder="Email"
-                            value={form.email}
-                            onChange={handleChange}
-                            required
-                            type="email"
-                        />
+                        {status === 'success' && (
+                            <div className="form-feedback is-success" role="status">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                <span>Message transmitted successfully. I will get back to you shortly.</span>
+                            </div>
+                        )}
 
-                    </div>
-
-                    <div className="form-row">
-
-                        <input
-                            name="phone"
-                            placeholder="Phone (optional)"
-                            value={form.phone}
-                            onChange={handleChange}
-                        />
-
-                        <input
-                            name="subject"
-                            placeholder="Subject"
-                            value={form.subject}
-                            onChange={handleChange}
-                            required
-                        />
-
-                    </div>
-
-                    <textarea
-                        name="message"
-                        placeholder="Message"
-                        value={form.message}
-                        onChange={handleChange}
-                        required
-                    />
-
-                    <button
-                        type="submit"
-                        className="form-submit"
-                        disabled={status === 'sending'}
-                    >
-                        {status === 'sending'
-                            ? 'Sending…'
-                            : 'Send Message →'}
-                    </button>
-
-                    {status === 'success' && (
-                        <p className="form-status success">
-                            ✓ Message sent successfully!
-                        </p>
-                    )}
-
-                    {status === 'error' && (
-                        <p className="form-status error">
-                            ✗ Failed to send. Please try again.
-                        </p>
-                    )}
-
-                </form>
+                        {status === 'error' && (
+                            <div className="form-feedback is-error" role="alert">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="8" x2="12" y2="12" />
+                                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                                </svg>
+                                <span>Transmission could not be completed. Please email directly at mannatapan588@gmail.com.</span>
+                            </div>
+                        )}
+                    </form>
+                </div>
             </div>
         </section>
     )

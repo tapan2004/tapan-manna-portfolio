@@ -1,35 +1,39 @@
-import { useEffect, useRef } from 'react'
+import useReveal from '../hooks/useReveal'
 
 export default function Education() {
-    const sectionRef = useRef(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            entries => entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('in-view')
-            }),
-            { threshold: 0.15 }
-        )
-        const els = sectionRef.current?.querySelectorAll('.reveal')
-        els?.forEach(el => observer.observe(el))
-        return () => observer.disconnect()
-    }, [])
+    const ref = useReveal()
 
     return (
-        <section className="section-pad" id="education" ref={sectionRef}>
-            <div className="section-tag reveal">// 06 — education</div>
-            <div className="section-title reveal">Academic <em>Background</em></div>
-            <div className="edu-card reveal" style={{ '--reveal-delay': '0.1s' }}>
-                <div className="edu-left">
-                    <div className="edu-degree">
-                        Bachelor of Technology<br />Computer Science &amp; Engineering
+        <section className="section-container" id="education" ref={ref}>
+            <div className="section-header reveal">
+                <span className="section-eyebrow">// 06. EDUCATION</span>
+                <h2 className="section-heading">Academic Background</h2>
+            </div>
+
+            <div className="education-card reveal">
+                <div className="edu-primary-details">
+                    <div className="edu-degree-header">
+                        <span className="edu-program-level">GRADUATE DEGREE</span>
+                        <span className="edu-first-class-badge">First Class Degree</span>
                     </div>
-                    <div className="edu-uni">Sister Nivedita University</div>
-                    <div className="edu-location">📍 Kolkata, West Bengal, India</div>
+                    <h3 className="edu-degree-name">Bachelor of Technology (B.Tech)</h3>
+                    <p className="edu-field">Computer Science &amp; Engineering</p>
+                    <div className="edu-institution-info">
+                        <span className="institution-name">Sister Nivedita University</span>
+                        <span className="institution-separator">•</span>
+                        <span className="institution-location">Kolkata, West Bengal, India</span>
+                    </div>
                 </div>
-                <div className="edu-right">
-                    <div className="edu-period">AUG 2022 – JUNE 2026</div>
-                    <div className="edu-badge">Graduated</div>
+
+                <div className="edu-timeline-details">
+                    <div className="edu-timeline-period">
+                        <span className="period-label">DURATION</span>
+                        <span className="period-value">August 2022 – June 2026</span>
+                    </div>
+                    <div className="edu-status-tag">
+                        <span className="status-dot" aria-hidden="true" />
+                        <span>Graduated with First Class (2026)</span>
+                    </div>
                 </div>
             </div>
         </section>

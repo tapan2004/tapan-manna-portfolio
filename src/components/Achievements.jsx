@@ -1,56 +1,59 @@
-import { useEffect, useRef } from 'react'
+import useReveal from '../hooks/useReveal'
 
 const ACHIEVEMENTS = [
     {
-        org: 'HackerRank',
-        title: '5-Star Java Badge',
-        desc: 'Earned the top-level badge in Java programming, demonstrating advanced proficiency across core Java concepts and problem-solving.',
-        date: 'MARCH 2024',
+        issuer: 'HackerRank',
+        credential: '5-Star Java Badge',
+        date: 'March 2024',
+        type: 'Skill Assessment',
+        description:
+            'Earned top-tier 5-star badge in Java programming, validating problem-solving proficiency, object-oriented principles, algorithmic execution, and core Java syntax mastery.'
     },
     {
-        org: 'Amazon',
-        title: 'Junior Software Developer',
-        desc: "Completed Amazon's training program in backend development and Java fundamentals, covering industry practices in software engineering.",
-        date: 'JANUARY 2026',
+        issuer: 'Amazon',
+        credential: 'Junior Software Developer',
+        date: 'January 2026',
+        type: 'Professional Training',
+        description:
+            'Completed comprehensive training covering core Java architecture, backend design fundamentals, software delivery lifecycles, and industry best practices in software engineering.'
     },
     {
-        org: 'Board Infinity',
-        title: 'Data Structures & Backend with Java',
-        desc: 'Gained hands-on proficiency in Spring Boot, JDBC, JPA, Hibernate, and RESTful API development through structured coursework.',
-        date: 'JUNE 2025',
-    },
+        issuer: 'Board Infinity',
+        credential: 'Data Structures & Backend with Java',
+        date: 'June 2025',
+        type: 'Specialized Coursework',
+        description:
+            'Hands-on coursework covering algorithms, Spring Boot microservices, JDBC, JPA/Hibernate persistence, and robust RESTful API engineering.'
+    }
 ]
 
 export default function Achievements() {
-    const sectionRef = useRef(null)
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            entries => entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('in-view')
-            }),
-            { threshold: 0.15 }
-        )
-        const els = sectionRef.current?.querySelectorAll('.reveal')
-        els?.forEach(el => observer.observe(el))
-        return () => observer.disconnect()
-    }, [])
+    const ref = useReveal()
 
     return (
-        <section className="section-pad alt-bg" id="achievements" ref={sectionRef}>
-            <div className="section-tag reveal">// 05 — achievements</div>
-            <div className="section-title reveal">Certifications &amp; <em>Recognition</em></div>
-            <div className="ach-grid">
-                {ACHIEVEMENTS.map((a, i) => (
+        <section className="section-container" id="achievements" ref={ref}>
+            <div className="section-header reveal">
+                <span className="section-eyebrow">// 05. CERTIFICATIONS</span>
+                <h2 className="section-heading">Verified Credentials &amp; Recognition</h2>
+                <p className="section-subheading">
+                    Formal skill assessments, specialized engineering programs, and validated competencies.
+                </p>
+            </div>
+
+            <div className="credentials-grid">
+                {ACHIEVEMENTS.map((item, idx) => (
                     <div
-                        className="ach-card reveal"
-                        key={a.title}
-                        style={{ '--reveal-delay': `${i * 0.1}s` }}
+                        className="credential-card reveal"
+                        key={item.credential}
+                        style={{ '--reveal-delay': `${idx * 0.08}s` }}
                     >
-                        <div className="ach-org">{a.org}</div>
-                        <div className="ach-title">{a.title}</div>
-                        <div className="ach-desc">{a.desc}</div>
-                        <div className="ach-date">{a.date}</div>
+                        <div className="credential-top">
+                            <span className="credential-issuer">{item.issuer}</span>
+                            <span className="credential-date">{item.date}</span>
+                        </div>
+                        <h3 className="credential-title">{item.credential}</h3>
+                        <div className="credential-type">{item.type}</div>
+                        <p className="credential-desc">{item.description}</p>
                     </div>
                 ))}
             </div>

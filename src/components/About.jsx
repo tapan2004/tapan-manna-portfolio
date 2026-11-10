@@ -2,50 +2,84 @@ import useReveal from '../hooks/useReveal'
 
 export default function About() {
     const ref = useReveal()
+
+    const PILLARS = [
+        {
+            tag: 'SYSTEMS ARCHITECTURE',
+            title: 'Backend & Distributed Engineering',
+            desc: 'Designing resilient microservices, asynchronous message streaming with Apache Kafka, gRPC remote procedure calls, and clean layered architectures across Java/Spring Boot and C#/.NET Core.'
+        },
+        {
+            tag: 'CROSS-PLATFORM ENGINEERING',
+            title: 'Full-Stack & Client Software',
+            desc: 'Building responsive web platforms, desktop tools, and client-facing applications using React, Node.js, Angular, and modern cross-platform development patterns.'
+        },
+        {
+            tag: 'DATA INFRASTRUCTURE',
+            title: 'Database Design & High Concurrency',
+            desc: 'Structuring relational schemas in PostgreSQL and MySQL with composite indexing, utilizing SQLite and Redis for sub-millisecond lookups, and enforcing transactional integrity under race conditions.'
+        },
+        {
+            tag: 'SECURITY & VERIFICATION',
+            title: 'Defensive Engineering & API Testing',
+            desc: 'Applying OWASP Top 10 standards, pre-retrieval access claim boundaries, JWT stateless session handling, and rigorous endpoint validation with Postman, Burp Suite, and Kali Linux.'
+        }
+    ]
+
     return (
-        <section className="section-pad alt-bg" id="about" ref={ref}>
-            <div className="section-tag reveal">// 01 — about</div>
-            <div className="section-title reveal">Who I <em>Am</em></div>
-            <div className="about-grid">
-                <div className="about-text">
-                    <p className="reveal">
-                        I'm a <strong>B.Tech Computer Science Graduate (2026)</strong> from Sister Nivedita University, Kolkata, with hands-on full-stack development experience as a <strong>Software Engineering Intern at Sunyam Software</strong>. My focus is on delivering robust, production-ready backend systems and web applications.
+        <section className="section-container" id="about" ref={ref}>
+            <div className="section-header reveal">
+                <span className="section-eyebrow">// 01. ABOUT</span>
+                <h2 className="section-heading">Engineering Background &amp; Philosophy</h2>
+            </div>
+
+            <div className="about-editorial-grid">
+                <div className="about-narrative reveal">
+                    <p className="narrative-lead">
+                        I am a Software Developer and Computer Science graduate focused on building dependable backend systems, full-stack software, and reliable infrastructure.
                     </p>
-                    <p className="reveal" style={{ '--reveal-delay': '0.1s' }}>
-                        I am highly proficient in <strong>Java, Spring Boot, Spring Security, and Spring Data JPA</strong> for building secure, scalable RESTful APIs, alongside frontend development in <strong>Angular and Next.js</strong>. I have practical experience working with <strong>PostgreSQL, MySQL</strong>, and end-to-end architectures.
+                    <p>
+                        Currently, as a <strong>Junior Software Development Engineer at The Thirty Three</strong>, I develop full-stack applications, desktop solutions, and distributed backend services utilizing <strong>C#, ASP.NET Core, Node.js, React, Go, and Apache Kafka</strong>.
                     </p>
-                    <p className="reveal" style={{ '--reveal-delay': '0.15s' }}>
-                        With a strong foundation in <strong>OOP, authentication systems, and Git/GitHub workflows</strong>, as well as experience in API security testing (using Burp Suite, Kali Linux, and OWASP Top 10), I seek a <strong>Java Backend or Full-Stack Developer role</strong>.
+                    <p>
+                        My engineering foundation was shaped through intensive coursework at Sister Nivedita University, followed by a software engineering internship at <strong>Sunyam Software</strong> working with <strong>Java, Spring Boot, and PostgreSQL</strong>, as well as hands-on API security testing and vulnerability assessment.
                     </p>
-                    <div className="about-details reveal" style={{ '--reveal-delay': '0.2s' }}>
-                        {[
-                            ['Location', 'Kolkata, West Bengal, India'],
-                            ['Email', 'mannatapan588@gmail.com'],
-                            ['Phone', '+91-9749697174'],
-                            ['Graduated', 'June 2026'],
-                            ['Open To', 'Java Backend / Full-Stack Roles'],
-                        ].map(([k, v]) => (
-                            <div className="detail-row" key={k}>
-                                <span className="detail-key">{k}</span>
-                                <span className="detail-val">{v}</span>
-                            </div>
-                        ))}
+                    <p>
+                        I value clean abstractions, well-documented APIs, sensible database indexing, and software that remains maintainable in production environments.
+                    </p>
+
+                    <div className="about-spec-sheet">
+                        <div className="spec-item">
+                            <span className="spec-label">Current Role</span>
+                            <span className="spec-value">Junior SDE, The Thirty Three</span>
+                        </div>
+                        <div className="spec-item">
+                            <span className="spec-label">Location</span>
+                            <span className="spec-value">Kolkata, West Bengal, India</span>
+                        </div>
+                        <div className="spec-item">
+                            <span className="spec-label">Education</span>
+                            <span className="spec-value">B.Tech in CSE — First Class Degree</span>
+                        </div>
+                        <div className="spec-item">
+                            <span className="spec-label">Email</span>
+                            <span className="spec-value">
+                                <a href="mailto:mannatapan588@gmail.com" className="spec-link">mannatapan588@gmail.com</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                <div className="about-cards">
-                    {[
-                        { icon: '🏗️', title: 'Backend Architecture', text: 'Layered Controller–Service–Repository patterns, stateless JWT sessions, role-based authorization, and Spring ecosystem mastery.' },
-                        { icon: '🤖', title: 'AI-Integrated Systems', text: 'ML pipelines with Scikit-Learn, time-series forecasting with Facebook Prophet, recommendation engines using Apriori algorithm.' },
-                        { icon: '🔒', title: 'API Security', text: 'Practical OWASP Top 10 application, Burp Suite and Postman testing, vulnerability documentation for real-world endpoints.' },
-                        { icon: '⚙️', title: 'DevOps Familiarity', text: 'Docker for containerization, Redis for caching and session management in distributed backend systems.' },
-                    ].map((c, i) => (
-                        <div className="about-card reveal" style={{ '--reveal-delay': `${i * 0.1}s` }} key={c.title}>
-                            <span className="ac-icon">{c.icon}</span>
-                            <div className="ac-title">{c.title}</div>
-                            <div className="ac-text">{c.text}</div>
-                        </div>
-                    ))}
+                <div className="about-pillars-column">
+                    <div className="pillars-list">
+                        {PILLARS.map((p, idx) => (
+                            <div className="pillar-item reveal" key={p.title} style={{ '--reveal-delay': `${idx * 0.08}s` }}>
+                                <span className="pillar-tag">{p.tag}</span>
+                                <h3 className="pillar-title">{p.title}</h3>
+                                <p className="pillar-desc">{p.desc}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,205 +1,361 @@
 import useReveal from '../hooks/useReveal'
 
-const PROJECTS = [
+const FEATURED_PROJECTS = [
     {
-        num: 'PROJECT 01',
+        index: '01',
+        title: 'DocuSense',
+        subtitle: 'Enterprise RAG Platform with Pre-Retrieval Security',
         date: '2026',
-        featured: true,
-        title: 'DocuSense: Enterprise RAG Platform with Pre-Retrieval Security',
-        desc: <span>Production-grade <strong>Retrieval-Augmented Generation (RAG) platform</strong> with multi-tenant clearance boundaries and pre-retrieval security.</span>,
-        features: [
-            'Security & Data Isolation: Engineered a secure document retrieval pipeline extracting RBAC claim boundaries from JWT signatures to execute pre-retrieval SQL filtering in pgvector',
-            'Java 21 Concurrency: Optimized ingestion pipelines by processing Apache Tika-parsed document chunk contextualization concurrently using Java 21 Virtual Threads',
-            'Sub-Millisecond Caching: Integrated Redis exact-match caching keyed on MD5 hashes of user claims, returning search responses in <1ms',
-            'Telemetry & Guardrails: Built a secondary LLM evaluation pipeline tracking token costs, latencies, groundedness callouts, and paginated audit logs',
+        category: 'AI & Security Infrastructure',
+        summary:
+            'A production-grade Retrieval-Augmented Generation (RAG) platform with multi-tenant clearance boundaries and pre-retrieval security to prevent data leakage in enterprise document query systems.',
+        architecture: [
+            {
+                label: 'Security & Data Isolation',
+                detail: 'Engineered a secure document retrieval pipeline extracting RBAC claim boundaries from JWT signatures to execute pre-retrieval SQL filtering in pgvector, preventing unauthorized vector context bleed.'
+            },
+            {
+                label: 'Java 21 Concurrency',
+                detail: 'Optimized ingestion pipelines by processing Apache Tika-parsed document chunk contextualization concurrently using Java 21 Virtual Threads for high throughput.'
+            },
+            {
+                label: 'Sub-Millisecond Caching',
+                detail: 'Integrated Redis exact-match caching keyed on MD5 hashes of user claims and queries, returning repeat semantic search responses in <1ms.'
+            },
+            {
+                label: 'Telemetry & Guardrails',
+                detail: 'Built a secondary LLM evaluation pipeline tracking token costs, query latencies, groundedness callouts, and paginated audit logs for enterprise compliance.'
+            }
         ],
-        stack: ['Java 21', 'Spring Boot 4', 'Spring Security', 'Spring AI', 'PostgreSQL (pgvector)', 'Redis', 'React', 'Docker'],
-        github: 'https://github.com/tapan2004/DocuSense',
+        stack: [
+            'Java 21',
+            'Spring Boot 4',
+            'Spring Security',
+            'Spring AI',
+            'PostgreSQL (pgvector)',
+            'Redis',
+            'React',
+            'Docker'
+        ],
+        github: 'https://github.com/tapan2004/DocuSense'
     },
     {
-        num: 'PROJECT 02',
+        index: '02',
+        title: 'PayGuard',
+        subtitle: 'Real-Time Payment Fraud Detection Pipeline',
         date: '2026',
-        featured: true,
-        title: 'PayGuard: Real-Time Payment Fraud Detection Pipeline',
-        desc: <span>High-throughput <strong>event-driven microservices architecture</strong> analyzing transaction streams in real-time for fraud scoring.</span>,
-        features: [
-            'Distributed Event Streaming: Built asynchronous transaction ingestion pipelines using Apache Kafka Streams for real-time risk scoring and sliding-window event aggregation',
-            'Microservices & Resilience: Engineered stateless Spring Boot microservices with idempotent transaction handlers and global exception interceptors',
-            'Database Optimization: Designed relational transaction ledger schemas in PostgreSQL tuned with composite indexes for sub-10ms query execution',
+        category: 'Distributed Systems & Event Streaming',
+        summary:
+            'A high-throughput event-driven microservices architecture analyzing live payment transactions in real time with stateful streaming rules to detect and prevent fraudulent transactions.',
+        architecture: [
+            {
+                label: 'Distributed Event Streaming',
+                detail: 'Built asynchronous transaction ingestion pipelines using Apache Kafka Streams for real-time risk scoring, sliding-window event aggregation, and rapid pattern matching.'
+            },
+            {
+                label: 'Microservices & Resilience',
+                detail: 'Engineered stateless Spring Boot microservices with idempotent transaction handlers, circuit breakers, and global exception interceptors for fault tolerance.'
+            },
+            {
+                label: 'Database Optimization',
+                detail: 'Designed relational transaction ledger schemas in PostgreSQL tuned with composite indexes and partitioning for sub-10ms query execution under sustained write load.'
+            }
         ],
-        stack: ['Java 21', 'Spring Boot', 'Apache Kafka', 'Kafka Streams', 'PostgreSQL', 'Docker'],
-        github: 'https://github.com/tapan2004/PayGuard',
+        stack: [
+            'Java 21',
+            'Spring Boot',
+            'Apache Kafka',
+            'Kafka Streams',
+            'PostgreSQL',
+            'Docker'
+        ],
+        github: 'https://github.com/tapan2004/PayGuard'
     },
     {
-        num: 'PROJECT 03',
+        index: '03',
+        title: 'DevSentinAI',
+        subtitle: 'Event-Driven AI Code Review Engine',
         date: '2026',
-        featured: true,
-        title: 'DevSentinAI: Event-Driven AI Code Review Engine',
-        desc: <span>Automated <strong>GitHub code review platform</strong> analyzing pull request diffs using LLMs and vector memory.</span>,
-        features: [
-            'Webhook Ingress: Built secure, HMAC-validated GitHub webhook listeners processing pull request events asynchronously',
-            'AST-Aware Chunking: Segmented multi-file code diffs into semantic chunks and generated vector embeddings stored in Redis Vector Store',
-            'Automated Feedback: Leveraged Spring AI to generate automated pull request inline review comments evaluating code quality, security vulnerabilities, and design patterns',
+        category: 'Developer Tooling & Vector Memory',
+        summary:
+            'An automated GitHub code review platform analyzing pull request diffs using semantic code chunking, vector memory, and LLMs to provide inline architectural feedback.',
+        architecture: [
+            {
+                label: 'Webhook Ingress',
+                detail: 'Built secure, HMAC-validated GitHub webhook listeners processing pull request events asynchronously with durable queuing.'
+            },
+            {
+                label: 'AST-Aware Chunking',
+                detail: 'Segmented multi-file code diffs into semantic chunks and generated vector embeddings stored in Redis Vector Store for cross-repository contextual lookups.'
+            },
+            {
+                label: 'Automated Feedback',
+                detail: 'Leveraged Spring AI to generate automated pull request inline review comments evaluating code quality, security vulnerabilities, and design patterns.'
+            }
         ],
-        stack: ['Java 21', 'Spring Boot', 'Spring AI', 'Redis Vector Store', 'GitHub Webhooks', 'Docker'],
-        github: 'https://github.com/tapan2004/DevSentinAI',
+        stack: [
+            'Java 21',
+            'Spring Boot',
+            'Spring AI',
+            'Redis Vector Store',
+            'GitHub Webhooks',
+            'Docker'
+        ],
+        github: 'https://github.com/tapan2004/DevSentinAI'
     },
     {
-        num: 'PROJECT 04',
-        date: 'JAN 2026 – FEB 2026',
-        featured: true,
+        index: '04',
         title: 'Personal Finance Tracker',
-        desc: <span>A full-featured <strong>backend system</strong> for managing personal finances with real-time expense tracking, budgeting, and automated reporting.</span>,
-        features: [
-            'Controller–Service–Repository architecture with Spring Boot & JPA',
-            'JWT-based authentication & role-based authorization',
-            '15+ REST APIs for transactions, budgeting & financial analytics',
-            'Budget alert notifications & email verification via JavaMailSender',
-            'Automated Excel reports with Apache POI & Spring Scheduler',
-            'Secure profile image uploads via Cloudinary',
+        subtitle: 'Secure Multi-Tenant Ledger & Analytics API',
+        date: 'Jan 2026 – Feb 2026',
+        category: 'Backend Architecture & Analytics',
+        summary:
+            'A full-featured backend system for personal financial management, featuring multi-account expense tracking, automated budget notifications, and generated financial audit exports.',
+        architecture: [
+            {
+                label: 'Layered Architecture',
+                detail: 'Built upon Controller–Service–Repository design patterns with Spring Boot, Spring Data JPA, and Hibernate for clean domain isolation.'
+            },
+            {
+                label: 'Security & Access Control',
+                detail: 'Stateless JWT-based authentication, BCrypt password hashing, and role-based endpoint authorization across 15+ REST endpoints.'
+            },
+            {
+                label: 'Scheduled Jobs & Reporting',
+                detail: 'Automated Excel ledger generation via Apache POI and cron-driven budget limit warnings delivered through JavaMailSender.'
+            }
         ],
-        stack: ['Java', 'Spring Boot', 'Spring Security', 'JPA/Hibernate', 'MySQL', 'Apache POI', 'Cloudinary', 'JWT'],
-        github: 'https://github.com/tapan2004/FinanceTrackerApi',
+        stack: [
+            'Java',
+            'Spring Boot',
+            'Spring Security',
+            'JPA/Hibernate',
+            'MySQL',
+            'Apache POI',
+            'Cloudinary',
+            'JWT'
+        ],
+        github: 'https://github.com/tapan2004/FinanceTrackerApi'
+    }
+]
+
+const SECONDARY_PROJECTS = [
+    {
+        index: '05',
+        title: 'AI-Powered Smart Cafe Management',
+        subtitle: 'Hybrid Java & Python Microservices',
+        date: 'Sep 2025 – Nov 2025',
+        summary:
+            'Scalable backend integrating Java (Spring Boot) and Python (FastAPI) microservices for cafe operations, market-basket recommendations (Apriori algorithm), and demand forecasting (Facebook Prophet).',
+        highlights: [
+            'Java/Python dual-runtime microservice architecture',
+            'Apriori recommendation engine for complementary menu pairing',
+            'Time-series order volume forecasting using Prophet',
+            'Unified REST analytics dashboard API'
+        ],
+        stack: ['Java', 'Spring Boot', 'FastAPI', 'Scikit-Learn', 'Prophet', 'Python', 'MySQL', 'JWT'],
+        github: 'https://github.com/tapan2004/smart-cafe-management-system'
     },
     {
-        num: 'PROJECT 05',
-        date: 'SEP 2025 – NOV 2025',
-        featured: false,
-        title: 'AI-Powered Smart Cafe Management System',
-        desc: <span>A <strong>scalable, AI-driven backend</strong> integrating Java and Python microservices for intelligent cafe operations and ML-based analytics.</span>,
-        features: [
-            'Spring Boot (Java) + FastAPI (Python) microservice integration',
-            'ML pipelines: sales prediction, peak hour detection, stock forecasting',
-            'Unified analytics dashboard API consolidating multiple AI services',
-            'Real-time recommendation engine using Apriori algorithm',
-            'Time-series forecasting using Facebook Prophet',
-            'JWT authentication & role-based authorization with Spring Security',
-        ],
-        stack: ['Java', 'Spring Boot', 'FastAPI', 'Scikit-Learn', 'Prophet', 'Apriori', 'Python', 'MySQL', 'JWT'],
-        github: 'https://github.com/tapan2004/smart-cafe-management-system',
-    },
-    {
-        num: 'PROJECT 06',
-        date: '2025',
-        featured: false,
+        index: '06',
         title: 'Event Ticket Booking — Concurrency & Locking',
-        desc: <span>Backend solving the <strong>overselling problem</strong> in high-concurrency ticket booking using Pessimistic Locking and transactional consistency.</span>,
-        features: [
-            'Pessimistic Locking via JPA to prevent race conditions on seat inventory',
-            'ACID transactions — booking fully commits or fully rolls back',
-            '20 concurrent requests for 5 seats: exactly 5 succeed, 15 return 400',
-            'Concurrency stress-tested with parallel bash script',
-            'Event + Section + Booking entity model with capacity enforcement',
+        subtitle: 'Race Condition Prevention with Pessimistic Locking',
+        date: '2025',
+        summary:
+            'Backend architecture solving the overselling problem in high-concurrency ticket sales using JPA Pessimistic Write Locking (PESSIMISTIC_WRITE) and transactional boundaries.',
+        highlights: [
+            'Strict Pessimistic Locking prevents overselling under parallel burst traffic',
+            'Tested with 20 parallel requests for 5 seats: exactly 5 commit, 15 fail safely',
+            'Atomic ACID transaction guarantees across Event, Section, and Seat reservations'
         ],
         stack: ['Java 21', 'Spring Boot', 'JPA/Hibernate', 'Pessimistic Locking', 'MySQL', 'Lombok'],
-        github: 'https://github.com/tapan2004/Ticket_Booking_API',
+        github: 'https://github.com/tapan2004/Ticket_Booking_API'
     },
     {
-        num: 'PROJECT 07',
-        date: '2025',
-        featured: false,
+        index: '07',
         title: 'Spring Boot Async Order Processing',
-        desc: <span><strong>Production-grade async order system</strong> using <code>@Async</code>, <code>ThreadPoolTaskExecutor</code> and <code>CompletableFuture</code> — modelled after real e-commerce backends.</span>,
-        features: [
-            'Non-blocking API: order confirmed instantly, background tasks run in parallel',
-            'Custom thread pool: Core 5, Max 20, Queue 500 with CallerRunsPolicy',
-            'Parallel async tasks: notify, assign vendor, package, dispatch',
-            'Graceful shutdown + structured trackingId logging',
+        subtitle: 'Non-Blocking E-Commerce Workflow Pipeline',
+        date: '2025',
+        summary:
+            'Production-grade asynchronous order processing system using @Async, ThreadPoolTaskExecutor, and CompletableFuture, modeled after enterprise fulfillment engines.',
+        highlights: [
+            'Non-blocking order intake: immediate confirmation with background orchestration',
+            'Tuned thread pool: Core 5, Max 20, Queue 500 with CallerRunsPolicy rejection handler',
+            'Concurrent execution of notifications, vendor assignment, and shipping label creation'
         ],
         stack: ['Java 21', 'Spring Boot', '@Async', 'ThreadPoolTaskExecutor', 'CompletableFuture', 'Lombok'],
-        github: 'https://github.com/tapan2004/spring-boot-async-order-processing',
+        github: 'https://github.com/tapan2004/spring-boot-async-order-processing'
     },
     {
-        num: 'PROJECT 08',
-        date: '2025',
-        featured: false,
+        index: '08',
         title: 'FullStack Email Sender',
-        desc: <span>A <strong>full-stack email app</strong> with Spring Boot REST backend and React + Tailwind frontend supporting Gmail, Outlook, and any SMTP provider.</span>,
-        features: [
-            'JavaMailSender with secure SMTP for Gmail & Outlook',
-            'React + Tailwind CSS frontend consuming REST API',
-            'Unit testing with Mockito for service layer reliability',
-            'End-to-end API tested with Postman',
+        subtitle: 'Multi-Provider SMTP Communication Service',
+        date: '2025',
+        summary:
+            'Reliable email dispatch system with Spring Boot REST backend and React frontend supporting Gmail, Outlook, and custom SMTP relays with comprehensive Mockito test coverage.',
+        highlights: [
+            'Multi-provider SMTP integration via JavaMailSender with TLS encryption',
+            'React client with input sanitization and responsive delivery previews',
+            'Comprehensive Mockito unit test suite verifying mail service fault tolerance'
         ],
         stack: ['Java', 'Spring Boot', 'JavaMailSender', 'React', 'Tailwind CSS', 'Mockito'],
-        github: 'https://github.com/tapan2004/Email-Service-Application',
-    },
+        github: 'https://github.com/tapan2004/Email-Service-Application'
+    }
 ]
 
 export default function Projects() {
     const ref = useReveal()
-    const featured = PROJECTS.filter(p => p.featured)
-    const others   = PROJECTS.filter(p => !p.featured)
 
     return (
-        <section className="section-pad" id="projects" ref={ref}>
-            <div className="section-tag reveal">// 04 — projects</div>
-            <div className="section-title reveal">What I've <em>Built</em></div>
+        <section className="section-container" id="projects" ref={ref}>
+            <div className="section-header reveal">
+                <span className="section-eyebrow">// 04. PROJECTS</span>
+                <h2 className="section-heading">Featured Systems &amp; Software</h2>
+                <p className="section-subheading">
+                    Production-grade backends, distributed pipelines, and concurrency-hardened software solutions.
+                </p>
+            </div>
 
-            {/* Featured 2-col */}
-            <div className="projects-grid">
-                {featured.map((p, i) => (
-                    <ProjectCard
-                        key={p.num} p={p}
-                        className={`reveal`}
-                        style={{ '--reveal-delay': `${i * 0.1}s` }}
-                    />
+            {/* Featured Projects: Editorial Long-form */}
+            <div className="featured-projects-list">
+                {FEATURED_PROJECTS.map((proj, idx) => (
+                    <article
+                        className="featured-project-card reveal"
+                        key={proj.title}
+                        style={{ '--reveal-delay': `${idx * 0.08}s` }}
+                    >
+                        <div className="featured-card-top">
+                            <div className="project-index-group">
+                                <span className="project-num">PROJECT {proj.index}</span>
+                                <span className="project-category">{proj.category}</span>
+                            </div>
+                            <span className="project-date">{proj.date}</span>
+                        </div>
+
+                        <div className="featured-card-header">
+                            <h3 className="project-title">{proj.title}</h3>
+                            <p className="project-subtitle">{proj.subtitle}</p>
+                        </div>
+
+                        <p className="project-summary">{proj.summary}</p>
+
+                        <div className="project-architecture-breakdown">
+                            <h4 className="breakdown-title">Architectural &amp; Implementation Details:</h4>
+                            <div className="architecture-grid">
+                                {proj.architecture.map(arch => (
+                                    <div className="arch-item" key={arch.label}>
+                                        <span className="arch-label">{arch.label}</span>
+                                        <p className="arch-detail">{arch.detail}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="featured-card-footer">
+                            <div className="project-stack">
+                                {proj.stack.map(tech => (
+                                    <span className="tech-badge" key={tech}>
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="project-links">
+                                <a
+                                    href={proj.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="project-github-link"
+                                >
+                                    <span>Source Repository</span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                        <line x1="7" y1="17" x2="17" y2="7" />
+                                        <polyline points="7 7 17 7 17 17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
                 ))}
             </div>
 
-            {/* Divider */}
-            <div className="more-label reveal" style={{ '--reveal-delay': '0.05s' }}>
-                <span className="more-line" />
-                <span className="more-text">More Projects</span>
-                <span className="more-line" />
+            {/* Secondary Projects Section */}
+            <div className="secondary-projects-section reveal">
+                <div className="section-sub-header">
+                    <h3 className="sub-header-title">Additional Engineering &amp; Concurrency Projects</h3>
+                    <p className="sub-header-desc">
+                        Targeted implementations addressing concurrency locking, async thread execution, and full-stack services.
+                    </p>
+                </div>
+
+                <div className="secondary-projects-grid">
+                    {SECONDARY_PROJECTS.map((proj, idx) => (
+                        <article
+                            className="secondary-project-card reveal"
+                            key={proj.title}
+                            style={{ '--reveal-delay': `${idx * 0.06}s` }}
+                        >
+                            <div className="secondary-card-top">
+                                <span className="project-num">PROJECT {proj.index}</span>
+                                <span className="project-date">{proj.date}</span>
+                            </div>
+
+                            <h4 className="secondary-title">{proj.title}</h4>
+                            <div className="secondary-subtitle">{proj.subtitle}</div>
+
+                            <p className="secondary-summary">{proj.summary}</p>
+
+                            <ul className="secondary-highlights">
+                                {proj.highlights.map(hl => (
+                                    <li key={hl} className="highlight-item">
+                                        {hl}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <div className="secondary-card-bottom">
+                                <div className="secondary-stack">
+                                    {proj.stack.map(tech => (
+                                        <span className="secondary-tech" key={tech}>
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <a
+                                    href={proj.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="secondary-link"
+                                >
+                                    <span>GitHub Repository →</span>
+                                </a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
             </div>
 
-            {/* Same 2-col grid as featured */}
-            <div className="projects-grid">
-                {others.map((p, i) => (
-                    <ProjectCard
-                        key={p.num} p={p}
-                        className="reveal"
-                        style={{ '--reveal-delay': `${0.1 + i * 0.08}s` }}
-                    />
-                ))}
-            </div>
-
-            {/* GitHub CTA */}
-            <div className="github-cta reveal" style={{ '--reveal-delay': '0.3s' }}>
+            {/* GitHub Profile Banner */}
+            <div className="github-profile-banner reveal">
+                <div className="banner-content">
+                    <h4 className="banner-title">Explore More Repositories</h4>
+                    <p className="banner-desc">
+                        Over 50+ repositories covering Java Spring Boot backends, microservice pipelines, algorithms, and cross-platform prototypes on GitHub.
+                    </p>
+                </div>
                 <a
                     href="https://github.com/tapan2004"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-secondary"
+                    className="btn-github-banner"
                 >
-                    🐙 &nbsp;View All 50+ Projects on GitHub
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                    <span>View GitHub Profile (50+ Repos)</span>
                 </a>
             </div>
         </section>
-    )
-}
-
-function ProjectCard({ p, className = '', style }) {
-    return (
-        <div className={`project-card ${className}`} style={style}>
-            <div className="pc-header">
-                <span className="pc-num">{p.num}</span>
-                <span className="pc-date">{p.date}</span>
-            </div>
-            <div className="pc-title">{p.title}</div>
-            <div className="pc-desc">{p.desc}</div>
-            <ul className="pc-features">
-                {p.features.map(f => (
-                    <li key={f}>{f}</li>
-                ))}
-            </ul>
-            <div className="pc-stack">
-                {p.stack.map(s => <span className="st" key={s}>{s}</span>)}
-            </div>
-            <a href={p.github} className="pc-link" target="_blank" rel="noopener noreferrer">
-                View on GitHub →
-            </a>
-        </div>
     )
 }
